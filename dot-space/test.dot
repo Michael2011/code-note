@@ -1,0 +1,24 @@
+digraph  
+{  
+node[shape=Mrecord];  
+  
+subgraph Driver  
+{  
+// Drivers.  
+gcc[label = "gcc(xgcc)"];  
+gpp[label = "g++"];  
+  
+// Driver code.  
+gcc_c[label = "{GCC_SRC/gcc/gcc.c|driver main entry}"];  
+gcc_objs[label = "GCC_OBJS"];  
+gccspec_c[label = "{GCC_SRC/gcc/gccspec.c|lang_specific_driver}"];  
+gppspec[label = "{GCC_SRC/gcc/cp/g++spec.c|lang_specific_driver}"];  
+gxx_objs[label = "GXX_OBJS"];  
+  
+gcc_c->gcc_objs;  
+{gcc_objs gccspec_c}->gcc;  
+{gppspec gcc_objs}->gxx_objs;  
+gxx_objs->gpp;  
+}  
+  
+}  
