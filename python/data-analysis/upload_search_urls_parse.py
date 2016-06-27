@@ -7,6 +7,13 @@ r = redis.Redis(
         password='+XfQtzIjJXMgK+4IPcAG0xUKvEsuE6stcGmsMO+yJ6s='
 )
 
+
+count = {'shared': {
+            'success': 0,
+            'failed': 0
+        }
+}
+
 keys = r.hkeys('info_upload_search_urls')
 for key in keys:
     if '4shared' not in key:
@@ -16,14 +23,17 @@ for key in keys:
     values = values.split('#')
 
     for value in values:
-       if '4shared' not in value:
+       if '4shared.com' not in value:
            continue
 
 
-       if 'music' in value:
-           print value
+       if '/music/' in value:
+          count['shared']['success'] += 1
 
-       if 'mp3' in value:
-          print value
+       elif '/mp3/' in value:
+          count['shared']['success'] += 1
 
+       else:
+          count['shared']['failed'] += 1
 
+print count
