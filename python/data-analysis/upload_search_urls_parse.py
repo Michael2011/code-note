@@ -33,6 +33,7 @@ for key in keys:
 				info = urlparse.urlparse(value)
 				
 				if info.netloc not in ('www.4shared.com', 'search.4shared.com'):
+					print value
 					count['shared']['failed'] += 1
 					continue
 
@@ -65,6 +66,7 @@ for key in keys:
 			info = urlparse.urlparse(value)
 			
 			if 'google.com' in info.netloc:
+				print value
 				count['mp3']['failed'] += 1
 				continue	
 			
