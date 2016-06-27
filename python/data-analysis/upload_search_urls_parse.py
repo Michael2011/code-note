@@ -15,13 +15,15 @@ for key in keys:
     values = r.hget('info_upload_search_urls', key)
     values = values.split('#')
 
-	for value in values:
+    for value in values:
        if '4shared' not in value:
            continue
 
 
        if 'music' in value:
-       
+           print value
 
+       if 'mp3' in value:
+          print value
 
 
