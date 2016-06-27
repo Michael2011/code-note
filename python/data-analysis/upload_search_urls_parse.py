@@ -69,4 +69,6 @@ for key in keys:
 				continue	
 			
 			count['mp3']['success'] += 1
+	else:
+		count['other']['success'] += 1
 print count
