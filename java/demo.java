@@ -18,8 +18,8 @@ class demo {
         // String s = "\"qualities\":{\"auto\":[{\"typ:},\"reporting\"";
 	
 		// common regular
-		// Pattern p = Pattern.compile("http[^\\s\"\'\\?]*\\.(mp3\\?|mp4\\?|flv\\?)[^\\s\"\'>]*");
-		// String s = "class=\"jsD1CommentCount\" value=\"0\"/>                <input type=\"hidden\" class=\"jsD1TrackCount\" value=\"0\"/>                <input type=\"hidden\" class=\"jsD1WaveformUrl\" value=\"http://dc722.4shared.com/img/V2kgaWQNce/b1019eac/dlink__2Fdownload_2FV2kgaWQNce_2FCL_5F-_5FHello_5FBitches.mp3_3Fsbsr_3Da47fc8f2a33259d0006f04b46bd47117977_26lgfp_3D7200/preview.waveform\" />                <input type=\"hidden\" class=\"jsD1TrackNumber\" value=\"1\"/>              </div>            <div class=\"brn_scroller__bar\"></div>          </div>  class=\"jsD1CommentCount\" value=\"0\"/>                <input type=\"hidden\" class=\"jsD1TrackCount\" value=\"0\"/>                <input type=\"hidden\" class=\"jsD1WaveformUrl\" value=\"http://dc722.4shared.com/img/V2kgaWQNce/b1019eac/dlink__2Fdownload_2FV2kgaWQNce_2FCL_5F-_5FHello_5FBitches.mp3?3Fsbsr_3Da47fc8f2a33259d0006f04b46bd47117977_26lgfp_3D7200/preview.waveform\" />                <input type=\"hidden\" class=\"jsD1TrackNumber\" value=\"1\"/>              </div>            <div class=\"brn_scroller__bar\"></div>          </div>  ";
+		// Pattern p = Pattern.compile("magnet:\\?.*?[\"\'>]");
+		// String s = "<a href=\"magnet:?xt=urn:btih:FB9CE5FB309C3E2577EE6978831AA0CB90811340&dn=The+Vet+Life+S01E01+Hello+Houston+HDTV+x264-%5BNY2%5D&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce\" rel=\"nofollow\" class=\"csprite_dltorrent\" title=\"Download The Vet Life S01E01 Hello Houston HDTV x264-[NY2] magnet\"></a><p><a href=\"magnet:?xt=urn:btih:FB9CE5FB309C3E2577EE6978831AA0CB90811340&dn=The+Vet+Life+S01E01+Hello+Houston+HDTV+x264-%5BNY2%5D&tr=udp%3A%2F%2Fglotorrents.pw%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2710%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce\" rel=\"nofollow\">Magnet Link</a></p></div></div>";
 		
 
 
@@ -38,12 +38,25 @@ class demo {
 		// String s = "<source src=\"https://www.tumblr.com/video_file/145027430437/tumblr_o7pz1bd6Cv1uzgpfq\" type=\"video/mp4\">";
 		
 		// ted.com
-		Pattern p = Pattern.compile("<script>q\\(\"talkPage\\.init\",(.*?)\\)</script>");
-		String s = "<script>q(\"talkPage.init)\",{\"talks\":[{dasdadadad)</script>";
+		// Pattern p = Pattern.compile("<script>q\\(\"talkPage\\.init\",(.*?)\\)</script>");
+		// String s = "<script>q(\"talkPage.init)\",{\"talks\":[{dasdadadad)</script>";
+
+		// tune.pk
+		// Pattern p = Pattern.compile("file: [\"\'](http[^\\s\"\']*\\.(mp4)[^\\s\"\']*)[\'\"]", Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+		//String s = "var video_files = [ {" 
+		//	  + "file: 'http:qeqweq'"
+        //      + "file: 'http://cw003.tunefiles.com/files/videos/2016/02/29/1456741746d80b6-720.mp4', "
+        //      + "width: \"100%\","
+        //      + "height: \"100%\", "
+        //      + "label : \"720p\","
+        //      + "file: \'http://cw003.tunefiles.com/files/videos/2016/02/29/1456741746d80b6-720.mp4\', "
+        //      + "bitrate : \"720\",];";
+		// Pattern p = Pattern.compile("href=[\'\"](http[^\\s\"\']*\\.(mp4))[\'\"]");
+		// String s = "<a class=\"btn\" download=\"awargi love games promo video song.mp4\" href=\"http://dl.hdking.mobi/media/x4/awargi_love_games_promo_video_song_1649.mp4\">Download</a>href=\"http://dl.hdking.mobi/media/x4/awargi_love_games_promo_video_song_1649.mp4312\">Download</a>";
 
         Matcher m = p.matcher(s);
         while(m.find()){
-            System.out.println(m.group(1));
+            System.out.println(m.group());
         }
 	}
 }
