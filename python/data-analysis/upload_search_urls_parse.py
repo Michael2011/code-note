@@ -36,8 +36,16 @@ for key in keys:
        elif '/mp3/' in value:
           count['shared']['success'] += 1
 
-       else:
-          print value
+       elif '/archive' in value:
           count['shared']['failed'] += 1
+
+       elif '/books_office' in value:
+          count['shared']['failed'] += 1
+
+       elif '/photo' in value:
+          count['shared']['failed'] += 1
+
+       else:
+          count['shared']['success'] += 1
 
 print count
