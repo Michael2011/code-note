@@ -37,6 +37,7 @@ for key in keys:
           count['shared']['success'] += 1
 
        else:
+          print value
           count['shared']['failed'] += 1
 
 print count
