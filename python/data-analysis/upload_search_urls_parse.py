@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import redis
+import urlparse
 
 r = redis.Redis(
         host='huvi.redis.cache.windows.net',
@@ -23,8 +24,10 @@ for key in keys:
     values = values.split('#')
 
     for value in values:
-       if '4shared.com' not in value:
-           continue
+       info = urlparse.urlparse(value)
+		
+       if info.netloc not in ('www.4shared.com', 'search.4shared.com'):
+          continue
 
 
        if '/music/' in value:
