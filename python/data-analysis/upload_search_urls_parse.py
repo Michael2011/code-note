@@ -37,12 +37,15 @@ for key in keys:
           count['shared']['success'] += 1
 
        elif '/archive' in value:
+          print value
           count['shared']['failed'] += 1
 
        elif '/books_office' in value:
+          print value
           count['shared']['failed'] += 1
 
        elif '/photo' in value:
+          print value
           count['shared']['failed'] += 1
 
        else:
