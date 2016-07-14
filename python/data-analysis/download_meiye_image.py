@@ -34,6 +34,7 @@ def download_meiye_image(**kwargs):
 
         while True and keys:
             if not redis_status:
+                    logging.warning('Thread: {} new task'.format(kwargs['target']))
                     redis_status = True
                     key = keys.pop()
                     redis_status = False
@@ -61,14 +62,13 @@ def download_meiye_image(**kwargs):
                         except:
                             continue
 
-                        time.sleep(2)
+                        time.sleep(5)
                         
-
         logging.warning('finish ... ' + kwargs['target'])
 
 def main():
     works = []
-    for i in xrange(3):
+    for i in xrange(5):
         work = threading.Thread(target=download_meiye_image, kwargs={'redis': r, 'target': str(i)})
         works.append(work)
 
