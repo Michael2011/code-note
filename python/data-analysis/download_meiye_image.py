@@ -14,7 +14,7 @@ import requests
 redis_status = False
 user_count = 0
 
-logging.basicConfig(level=logging.INFO,
+logging.basicConfig(level=logging.WARNING,
                 format='%(asctime)s %(levelname)s %(message)s',
                 datefmt='%a, %d %b %Y %H:%M:%S',
                 filename='logs/download.log',
@@ -25,7 +25,7 @@ r = redis.Redis(
         password='+XfQtzIjJXMgK+4IPcAG0xUKvEsuE6stcGmsMO+yJ6s='
 )
 # keys = r.hkeys('meiye_images')
-# keys = keys[:1]
+# keys = keys[:100000]
 keys = ['247412']
 
 def download_meiye_image(**kwargs):
@@ -46,8 +46,7 @@ def download_meiye_image(**kwargs):
                     
                     current_dir = os.getcwd()
                     for img in images:
-                        print ('Thread: ({}) download  (user: {}) image: ({})'.format(kwargs['target'], key, img))
-                        logging.info('Thread: ({}) download  (user: {}) image: ({})'.format(kwargs['target'], key, img))
+                        logging.warning('Thread: {} download  (user: {}) image: ({})'.format(kwargs['target'], key, img))
                         file_path = current_dir + '/images/' + key
                         if not os.path.exists(file_path):
                             os.makedirs(file_path)
@@ -65,7 +64,7 @@ def download_meiye_image(**kwargs):
                         time.sleep(2)
                         
 
-        logging.info('finish ... ' + kwargs['target'])
+        logging.warning('finish ... ' + kwargs['target'])
 
 def main():
     works = []
