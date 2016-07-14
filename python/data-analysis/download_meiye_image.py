@@ -24,9 +24,9 @@ r = redis.Redis(
         host='huvi.redis.cache.windows.net',
         password='+XfQtzIjJXMgK+4IPcAG0xUKvEsuE6stcGmsMO+yJ6s='
 )
-# keys = r.hkeys('meiye_images')
-# keys = keys[:100000]
-keys = ['247412']
+keys = r.hkeys('meiye_images')
+keys = keys[:100000]
+# keys = ['247412']
 
 def download_meiye_image(**kwargs):
         global redis_status 
