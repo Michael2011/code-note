@@ -25,7 +25,7 @@ r = redis.Redis(
         password='+XfQtzIjJXMgK+4IPcAG0xUKvEsuE6stcGmsMO+yJ6s='
 )
 keys = r.hkeys('meiye_images')
-keys = keys[:100000]
+keys = keys[453:100000]
 # keys = ['247412']
 
 def download_meiye_image(**kwargs):
@@ -68,7 +68,7 @@ def download_meiye_image(**kwargs):
 
 def main():
     works = []
-    for i in xrange(5):
+    for i in xrange(20):
         work = threading.Thread(target=download_meiye_image, kwargs={'redis': r, 'target': str(i)})
         works.append(work)
 
