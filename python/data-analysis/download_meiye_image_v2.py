@@ -24,18 +24,10 @@ r = redis.Redis(
         host='huvi.redis.cache.windows.net',
         password='+XfQtzIjJXMgK+4IPcAG0xUKvEsuE6stcGmsMO+yJ6s='
 )
-
 keys = r.hkeys('meiye_images')
 keys = keys[7000:150000]
 logging.warning('total count: ' + str(len(keys)))
 # keys = ['247412']
-
-base_dir = os.getcwd()
-image_list = os.listdir(base_dir + '/images')
-data_image_list = os.listdir(base_dir + '/data/images')
-download_list = image_list + data_image_list
-
-logging.INFO('download {}, {} users'.format(len(download_list), len(set(download_list))))
 
 def download_meiye_image(**kwargs):
         global redis_status 
@@ -45,9 +37,7 @@ def download_meiye_image(**kwargs):
             if not redis_status:
                     # redis_status = True
                     key = keys.pop()
-                    if key in download_list: continue
                     # redis_status = False
-
                     logging.warning('Thread: {} new task: {}'.format(kwargs['target'], key))
 
                     images = kwargs['redis'].hget('meiye_images', key)
@@ -81,7 +71,7 @@ def download_meiye_image(**kwargs):
 
 def main():
     works = []
-    for i in xrange(30):
+    for i in xrange(20):
         work = threading.Thread(target=download_meiye_image, kwargs={'redis': r, 'target': str(i)})
         works.append(work)
 
