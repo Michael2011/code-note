@@ -35,7 +35,7 @@ image_list = os.listdir(base_dir + '/images')
 data_image_list = os.listdir(base_dir + '/data/images')
 download_list = image_list + data_image_list
 
-logging.INFO('download {}, {} users'.format(len(download_list), len(set(download_list))))
+logging.info('download {}, {} users'.format(str(len(download_list)), str(len(set(download_list)))))
 
 def download_meiye_image(**kwargs):
         global redis_status 
@@ -48,7 +48,7 @@ def download_meiye_image(**kwargs):
                     if key in download_list: continue
                     # redis_status = False
 
-                    logging.warning('Thread: {} new task: {}'.format(kwargs['target'], key))
+                    logging.info('Thread: {} new task: {}'.format(kwargs['target'], key))
 
                     images = kwargs['redis'].hget('meiye_images', key)
                     try:
@@ -59,7 +59,7 @@ def download_meiye_image(**kwargs):
                     
                     current_dir = os.getcwd()
                     for img in images[:20]:
-                        logging.warning('Thread: {} download  (user: {}) image: ({})'.format(kwargs['target'], key, img))
+                        logging.info('Thread: {} download  (user: {}) image: ({})'.format(kwargs['target'], key, img))
                         file_path = current_dir + '/images/' + key
                         if not os.path.exists(file_path):
                             os.makedirs(file_path)
@@ -77,11 +77,11 @@ def download_meiye_image(**kwargs):
 
                         time.sleep(5)
                         
-        logging.warning('finish ... ' + kwargs['target'])
+        logging.info('finish ... ' + kwargs['target'])
 
 def main():
     works = []
-    for i in xrange(30):
+    for i in xrange(40):
         work = threading.Thread(target=download_meiye_image, kwargs={'redis': r, 'target': str(i)})
         works.append(work)
 
