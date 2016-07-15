@@ -26,7 +26,6 @@ r = redis.Redis(
 )
 keys = r.hkeys('meiye_images')
 keys = keys[5384:100000]
-keys = keys[5384:5385]
 # keys = ['247412']
 
 def download_meiye_image(**kwargs):
@@ -47,7 +46,7 @@ def download_meiye_image(**kwargs):
                         continue
                     
                     current_dir = os.getcwd()
-                    for img in images[:30]:
+                    for img in images[:20]:
                         logging.warning('Thread: {} download  (user: {}) image: ({})'.format(kwargs['target'], key, img))
                         file_path = current_dir + '/images/' + key
                         if not os.path.exists(file_path):
