@@ -26,20 +26,6 @@ r = redis.Redis(
         password='+XfQtzIjJXMgK+4IPcAG0xUKvEsuE6stcGmsMO+yJ6s='
 )
 
-"""
-keys = r.hkeys('meiye_images')
-keys = keys[7000:150000]
-logging.warning('total count: ' + str(len(keys)))
-# keys = ['247412']
-
-base_dir = os.getcwd()
-image_list = os.listdir(base_dir + '/images')
-data_image_list = os.listdir(base_dir + '/data/images')
-download_list = image_list + data_image_list
-
-logging.info('download {}, {} users'.format(str(len(download_list)), str(len(set(download_list)))))
-"""
-
 keys = []
 with open('scran_download_user.txt', 'r') as pf:
     keys = pf.read().split('\n')
@@ -54,7 +40,6 @@ def download_meiye_image(**kwargs):
             if not redis_status:
                     # redis_status = True
                     key = keys.pop()
-                    if key in download_list: continue
                     # redis_status = False
 
                     logging.info('Thread: {} new task: {}'.format(kwargs['target'], key))
@@ -91,7 +76,8 @@ def download_meiye_image(**kwargs):
 def main():
     works = []
     for i in xrange(100):
-        work = threading.Thread(target=download_meiye_image, kwargs={'redis': r, 'target': str(i)})
+        work = threading.Thread(target=download_meiye_image, 
+                                kwargs={'redis': r, 'target': str(i)})
         works.append(work)
 
     for work in works:
