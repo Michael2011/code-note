@@ -11,6 +11,7 @@ import MySQLdb
 import simplejson
 import requests
 
+
 redis_status = False
 user_count = 0
 
@@ -25,6 +26,7 @@ r = redis.Redis(
         password='+XfQtzIjJXMgK+4IPcAG0xUKvEsuE6stcGmsMO+yJ6s='
 )
 
+"""
 keys = r.hkeys('meiye_images')
 keys = keys[7000:150000]
 logging.warning('total count: ' + str(len(keys)))
@@ -36,6 +38,13 @@ data_image_list = os.listdir(base_dir + '/data/images')
 download_list = image_list + data_image_list
 
 logging.info('download {}, {} users'.format(str(len(download_list)), str(len(set(download_list)))))
+"""
+
+keys = []
+with open('scran_download_user.txt', 'r') as pf:
+    keys = pf.read().split('\n')
+    logging.info('download {} users'.format(len(keys)))
+raise
 
 def download_meiye_image(**kwargs):
         global redis_status 
