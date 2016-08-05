@@ -1,0 +1,4 @@
+usage: work.py [-h] [--int INT] [--gpu GPU] [--model MODEL] [--out OUT]
+work.py: error: argument --gpu/-g: expected one argument
+usage: work.py [-h] [--int INT] [--gpu GPU] [--model MODEL] [--out OUT]
+work.py: error: argument --gpu/-g: expected one argument

@@ -54,6 +54,10 @@ class demo {
 		// Pattern p = Pattern.compile("href=[\'\"](http[^\\s\"\']*\\.(mp4))[\'\"]");
 		// String s = "<a class=\"btn\" download=\"awargi love games promo video song.mp4\" href=\"http://dl.hdking.mobi/media/x4/awargi_love_games_promo_video_song_1649.mp4\">Download</a>href=\"http://dl.hdking.mobi/media/x4/awargi_love_games_promo_video_song_1649.mp4312\">Download</a>";
 
+
+		Pattern p = Pattern.compile("url=(http[^\\s\"\']*?\\.mp3)");
+		String s = "http://dl.mp3yox.com/down.php?url=http://songserver.info/api/sc_231987775.mp3&amp;name=Adele Hello Trxd Leroy Sanchez Remix";
+
         Matcher m = p.matcher(s);
         while(m.find()){
             System.out.println(m.group());

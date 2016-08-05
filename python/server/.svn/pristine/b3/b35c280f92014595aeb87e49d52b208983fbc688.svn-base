@@ -1,0 +1,11 @@
+Fri, 29 Jul 2016 12:28:03 work.py[line:42] INFO ImageHandleTask init ...
+Fri, 29 Jul 2016 12:28:08 work.py[line:105] INFO loading models : cubist, a019, a007, a025, a023, picasso, c2, kandinsky, a029, a028
+Fri, 29 Jul 2016 12:28:08 work.py[line:106] INFO load success
+Fri, 29 Jul 2016 12:33:32 work.py[line:116] INFO model(c2) is callbacked
+Fri, 29 Jul 2016 12:33:33 work.py[line:133] INFO c2 runtime: 0.747514009476s
+6414566s
+Fri, 29 Jul 2016 12:32:51 work.py[line:116] INFO model(c2) is callbacked
+Fri, 29 Jul 2016 12:32:52 work.py[line:133] INFO c2 runtime: 0.318819046021s
+318634s
+Fri, 29 Jul 2016 12:33:35 work.py[line:116] INFO model(picasso) is callbacked
+Fri, 29 Jul 2016 12:33:36 work.py[line:133] INFO picasso runtime: 0.319329023361s

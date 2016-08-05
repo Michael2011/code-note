@@ -1,0 +1,41 @@
+#!/bin/bash
+source /etc/profile
+
+if [ `ps -aux | grep "svn" | grep -v 'grep' | wc -l` -lt 1 ]
+then
+	#使用svn更新数据，只能运行一个svn
+	cd /data/htdocss/chainer-fast-neuralstyle/workspace/chainer-fast-neuralstyle
+	svn up
+fi
+
+if [ `ps -aux | grep "python2.7 work.py -g 0" | grep -v 'grep' | wc -l` -lt 1 ]
+then
+	source /data/htdocss/chainer-fast-neuralstyle/bin/activate
+	cd /data/htdocss/chainer-fast-neuralstyle/workspace/chainer-fast-neuralstyle
+	nohup python2.7 work.py -g 0 > /dev/null &
+	# /bin/bash /data/htdocss/chainer-fast-neuralstyle/workspace/chainer-fast-neuralstyle/crontabs/run.sh
+fi
+
+if [ `ps -aux | grep "python2.7 work.py -g 1" | grep -v 'grep' | wc -l` -lt 1 ]
+then
+	source /data/htdocss/chainer-fast-neuralstyle/bin/activate
+	cd /data/htdocss/chainer-fast-neuralstyle/workspace/chainer-fast-neuralstyle
+	nohup python2.7 work.py -g 1 > /dev/null &
+	# /bin/bash /data/htdocss/chainer-fast-neuralstyle/workspace/chainer-fast-neuralstyle/crontabs/run.sh
+fi
+
+if [ `ps -aux | grep "python2.7 work.py -g 2" | grep -v 'grep' | wc -l` -lt 1 ]
+then
+	source /data/htdocss/chainer-fast-neuralstyle/bin/activate
+	cd /data/htdocss/chainer-fast-neuralstyle/workspace/chainer-fast-neuralstyle
+	nohup python2.7 work.py -g 2 > /dev/null &
+	# /bin/bash /data/htdocss/chainer-fast-neuralstyle/workspace/chainer-fast-neuralstyle/crontabs/run.sh
+fi
+
+if [ `ps -aux | grep "python2.7 work.py -g 3" | grep -v 'grep' | wc -l` -lt 1 ]
+then
+	source /data/htdocss/chainer-fast-neuralstyle/bin/activate
+	cd /data/htdocss/chainer-fast-neuralstyle/workspace/chainer-fast-neuralstyle
+	nohup python2.7 work.py -g 3 > /dev/null &
+	# /bin/bash /data/htdocss/chainer-fast-neuralstyle/workspace/chainer-fast-neuralstyle/crontabs/run.sh
+fi
